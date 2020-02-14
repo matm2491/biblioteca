@@ -6,7 +6,7 @@ from autores.models import Autor
 class LibreriasAdmin(admin.ModelAdmin):
 
     list_display=("nombre", "autor")
-    #search_fields=("primer_nombre", "segundo_nombre", "primer_apellido", "segundo_apellido")
+    search_fields=("p_nombre", "p_apellidos")
 
 admin.site.register(Libros)
 admin.site.register(Autor)

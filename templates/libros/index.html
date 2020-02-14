@@ -10,28 +10,69 @@
 <thead>
     <table style="border: hidden;" align="center" cellpadding ="20">
         <tr>
-            <td id="blanco">Bienvenido</td>
+            <td><h1>Bienvenido Libros disponibles</h1></td>
         </tr>
     </table>
 </thead>
 
     <!--   ok aqui la tabla del buscador    -->
 
-
+<table id="table_1" style="border: hidden;" align="center" CELLSPACING="20" WIDTH="40%">
 <thead>
-    <table style="border: hidden;" align="center" CELLSPACING="20" WIDTH="20%">
-        <tr>
-            <td id="blanco">nombre del libro</td>
-            <td id="blanco">autor del libro</td>
+            <tr>
+            <th >LIBROS</th>
+            <th >AUTORES</th>
+            <th >opciones</th>
         </tr>
     
 </thead>
         {% for Libros in object_list %}
 <tbody>
         <tr>
-            <th id="blanco">{{Libros.nombre}}</th>
+            <td >{{Libros.nombre}}</td>
+            <td >{{Libros.autor}}</td>
+            <td >opciones</td>
         </tr>
 </tbody>
         {% endfor %}
 </table>
+
+<script>
+    $(document).ready( function () {
+      $('#table_1').DataTable({
+        "language":  {
+        "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+}
+
+      });
+      
+    } );
+
+   
+</script>
 {% endblock %}
