@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    hola
-</body>
-</html>
+{% extends 'libros/base.html'%}
+
+
+{% block head_content %}
+        
+{% endblock %}
+
+{% block content %}
+
+<thead>
+    <table style="border: hidden;" align="center" cellpadding ="20">
+        <tr>
+            <td id="blanco">Bienvenido</td>
+        </tr>
+    </table>
+</thead>
+
+    <!--   ok aqui la tabla del buscador    -->
+
+
+<thead>
+    <table style="border: hidden;" align="center" CELLSPACING="20" WIDTH="20%">
+        <tr>
+            <td id="blanco">nombre del libro</td>
+            <td id="blanco">autor del libro</td>
+        </tr>
+    
+</thead>
+        {% for Libros in object_list %}
+<tbody>
+        <tr>
+            <th id="blanco">{{Libros.nombre}}</th>
+        </tr>
+</tbody>
+        {% endfor %}
+</table>
+{% endblock %}
